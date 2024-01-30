@@ -1,0 +1,107 @@
+.header-image {
+    text-align: left;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.hero-section {
+    color: white;
+    font-size: 2rem;
+}
+
+@media screen and (min-width: 0px){
+    .hero-section {
+        background-image: url("images/background-extra-small.jpg");
+    }
+}
+
+@media screen and (min-width: 647px) {
+    .hero-section {
+        background-image: url("images/background-small.jpg");
+    }
+
+}
+
+@media screen and (min-width: 769px) {
+    .hero-section {
+        background-image: url("images/background-medium.jpg");
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .hero-section {
+        background-image: url("images/background-large.jpg");
+    }
+}
+
+@media screen and (min-width: 1921px) {
+    .hero-section {
+        background-image: url("images/background-extra-large.jpg");
+    }
+}
+
+h2 {
+    color: black;
+    font-size: 3rem;
+}
+
+p {
+    color: black;
+    font-size: 2em;
+}
+
+button{
+    font-size: large;
+    width: 25%;
+    background-color: rgb(199, 199, 199);
+    font-size: 2rem;
+}
+
+button:hover{
+    background-color: rgb(109, 109, 109);
+    color: white;
+}
+
+.features-section {
+    background-image: url("images/flourish.png");
+    background-size: cover;
+    background-color: rgb(43, 142, 142);
+}
+
+.feature {
+    border-bottom: 1px solid #ccc;
+}
+
+.grid-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    list-style: none;
+    counter-reset: css-counter 0;
+
+}
+
+.grid-list p{
+    counter-increment: css-counter 1;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.grid-list p::before {
+    content: counter(css-counter) ". ";
+}
+
+#list-2 p::before {
+    content: "• ";
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}

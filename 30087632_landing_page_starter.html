@@ -1,0 +1,61 @@
+<!-- Can you improve this landing page for us, we want it to look amazing and be responsive -->
+<!-- My son Billy setup the page like this for us -->
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="30087632_styles.css">
+</head>
+<!-- the background colour of the page should compliment the other colours being used -->
+<body>
+    <header class="hero-section">
+        <div class="header-image">
+            <svg><use href="images/logo.svg#logo"/></svg>
+        </div>
+
+        <h1>Welcome to Application</h1>
+        <!-- This section should have a background image behind the Welcome to Application -->
+    </header>
+    <!-- I really wish we could have a flourish in the background of these feature-section -->
+
+    <!-- Each of these sections should have colours that compliment the colour of our background image and the foreground image -->
+    <section class="features-section">
+        <article class="feature">
+            <h2>Top 4 Reasons to Choose Us</h2>
+            <p>Why would you want to choose us? Here are the top 4 reasons why we are the best:</p> 
+            <div class="grid-list">
+                <p>Quality Assurance</p>
+                <p>24/7 Customer Support</p>
+                <p>Affordable Pricing</p>
+                <p>Expert Team, Fast Delivery</p>
+            </div>
+        </article>
+        <article class="feature">
+            <h2>Our Products include:</h2>
+            <div class="grid-list" id="list-2">
+                <p>Advanced technology</p>
+                <p>100% Reliable</p>
+                <p>Cost-effective</p>
+                <p>User-friendly</p>
+            </div>
+            <button>Shop Now!</button>
+        </article>
+    </section>
+    <section class="about-section flex">
+        <h2>About Us</h2>
+        <p>Information about the company.</p>
+        <p>Click this link, it opens in a new window: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN Docs</a></p>
+        <!-- Insert the company image here, it's in the images directory called image-<size>.png -->
+        <picture>
+            <source media="(min-width: 2000px)" srcset="images/image-extra-large.png">
+            <source media="(min-width: 1200px)" srcset="images/image-large.png">
+            <source media="(min-width: 800px)" srcset="images/image-medium.png">
+            <img src="images/image-small.png" alt="Company Image">
+        </picture>
+    </section>
+    <footer class="cta-section flex">
+        <h2>Contact Us</h2>
+        <p>Get in touch for more information.</p>
+        <button>Contact Us</button>
+    </footer>
+</body>
+</html>
