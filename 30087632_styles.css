@@ -8,8 +8,10 @@
 
 
 .hero-section {
-    color: white;
+    color: #AFDEDC;
     font-size: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (min-width: 0px){
@@ -43,6 +45,10 @@
     }
 }
 
+h1 {
+    width: 65%;
+}
+
 h2 {
     color: black;
     font-size: 3rem;
@@ -56,19 +62,19 @@ p {
 button{
     font-size: large;
     width: 25%;
-    background-color: rgb(199, 199, 199);
+    background-color: #F0F7EE;
     font-size: 2rem;
 }
 
 button:hover{
-    background-color: rgb(109, 109, 109);
+    background-color: #91A8A4;
     color: white;
 }
 
 .features-section {
     background-image: url("images/flourish.png");
     background-size: cover;
-    background-color: rgb(43, 142, 142);
+    background-color: #C4D7F2;
 }
 
 .feature {
@@ -81,13 +87,11 @@ button:hover{
     grid-gap: 1rem;
     list-style: none;
     counter-reset: css-counter 0;
-
+    font-weight: bold;
 }
 
 .grid-list p{
     counter-increment: css-counter 1;
-    font-weight: bold;
-    font-size: 2rem;
 }
 
 .grid-list p::before {
@@ -104,4 +108,12 @@ button:hover{
     align-items: center;
     justify-content: center;
     
+}
+
+.about-section {
+    background-color: #F0F7EE;
+}
+
+.cta-section {
+    background-color: #91A8A4;
 }
