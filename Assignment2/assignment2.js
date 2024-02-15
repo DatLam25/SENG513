@@ -44,6 +44,7 @@ const quiz = {
         
     },
 
+    //TODO: Adjust difficulty based on user score
     async fetchQuestion (difficulty){
         // Fetching 10 questions at a time to avoid timeout
         let apiURL = `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`;
