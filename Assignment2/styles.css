@@ -5,11 +5,29 @@
   font-family: "Courier New", Courier, monospace;
 }
 body {
-  background-color: #eef5ff;
-  background-size: 35px 35px;
-  background-image: linear-gradient(to right, #a9ceff 1px, transparent 1px),
-    linear-gradient(to bottom, #a9ceff 1px, transparent 1px);
   text-align: center;
+  animation: background 20s infinite;
+}
+
+@keyframes background {
+  0% {
+    background: #93bbd1;
+  }
+  20% {
+    background: #9493d1;
+  }
+  40% {
+    background: #c093d1;
+  }
+  60% {
+    background: #d193c0;
+  }
+  80% {
+    background: #c093d1;
+  }
+  100% {
+    background: #93bbd1;
+  }
 }
 
 button {
@@ -17,16 +35,17 @@ button {
 }
 
 #title {
-  margin: 15% 0 10px 0;
+  margin: 25px 0 10px 0;
+  color: white;
 }
 
 .container {
   max-width: 600px;
   margin: 20px auto;
   padding: 28px;
-  background-color: #fcffe5;
-  border: 2px solid #eba50f;
+  background-color: #ffffff;
   border-radius: 10px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 #name {
@@ -83,6 +102,12 @@ button {
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 button {
   margin-bottom: 5px;
   padding: 10px;
@@ -94,7 +119,7 @@ button {
 }
 
 #choices button:not(.disabled):hover {
-  background-color: #f0e6cd;
+  background-color: #e8cdf0;
 }
 
 button {
@@ -123,4 +148,42 @@ button.false {
 #answer {
   margin-top: 20px;
   color: #00a100;
+}
+
+.cloud {
+  margin-top: 90px;
+  margin-left: 0%;
+  width: 175px;
+  height: 60px;
+  background: #eceff1;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  position: relative; /* Added */
+}
+.cloud::after,
+.cloud::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background: inherit;
+  border-radius: inherit;
+}
+.cloud::after {
+  width: 50px;
+  height: 50px;
+  top: -10px;
+  left: 25px; /* Adjusted from left to right */
+  right: 0; /* Added */
+}
+
+.cloud::before {
+  width: 90px;
+  height: 90px;
+  top: -35px;
+  left: 65px; /* Adjusted from left to right */
+  right: auto; /* Added */
+}
+
+.right {
+  margin-left: 50%;
 }
