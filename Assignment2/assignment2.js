@@ -118,15 +118,15 @@ const quiz = {
     document.getElementById(
       "answer"
     ).innerHTML = `Answer: ${this.currentQuestion.answer}`;
-    let correct = this.currentQuestion.checkAnswer(answer);
     // increase or decrease difficulty depending on correctness
-    if (correct) {
+    if (this.currentQuestion.checkAnswer(answer)) {
       this.currentScore++;
       this.difficulty = this.difficulty < 3 ? this.difficulty + 1 : 3;
     } else {
       this.difficulty = this.difficulty > 1 ? this.difficulty - 1 : 1;
     }
     this.questionNumber++;
+    this.scoreElement.innerHTML = `${this.currentScore}/${this.questionNumber}`;
     console.log("fetching new question");
     await new Promise((resolve) => setTimeout(resolve, 2500)); // Wait for 2.5 seconds
     await this.fetchQuestion(difficultyWord[this.difficulty].toLowerCase());
