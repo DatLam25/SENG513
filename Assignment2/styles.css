@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+body {
+  background-color: #eef5ff;
+  background-size: 35px 35px;
+  background-image: linear-gradient(to right, #a9ceff 1px, transparent 1px),
+    linear-gradient(to bottom, #a9ceff 1px, transparent 1px);
+  text-align: center;
+}
+
+button {
+  font-family: "Courier New", Courier, monospace;
+}
+
+#title {
+  margin: 15% 0 10px 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 28px;
+  background-color: #fcffe5;
+  border: 2px solid #eba50f;
+  border-radius: 10px;
+}
+
+#name {
+  width: 100%;
+  padding: 10px;
+  margin: 17px 0;
+  border: 1px solid #878787;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+#nameLabel {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#start-button {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #00a2ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#start-button:hover {
+  background-color: #0082cd;
+}
+
+#score {
+  color: red;
+}
+
+#quiz {
+  display: none; /* Initially hidden */
+}
+
+#questionNumber {
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+#question {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+#choices {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-bottom: 5px;
+  padding: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  border: solid 1px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#choices button:not(.disabled):hover {
+  background-color: #f0e6cd;
+}
+
+button {
+  margin-top: 5px;
+  padding: 10px;
+}
+
+button.disabled {
+  cursor: not-allowed;
+  background-color: #fffae5;
+  color: #737373;
+}
+
+button.true {
+  background-color: #b0eda7;
+  border-color: green;
+  color: green;
+}
+
+button.false {
+  background-color: #f3b0b0;
+  border-color: red;
+  color: #cf0000;
+}
+
+#answer {
+  margin-top: 20px;
+  color: #00a100;
+}
