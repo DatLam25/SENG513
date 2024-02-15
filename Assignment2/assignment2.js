@@ -1,5 +1,3 @@
-//TODO: Usage of bind, call and apply
-
 // User object: Has username and keeps track of score history
 function User(name) {
   this.username = name;
@@ -24,6 +22,21 @@ function Question(question, options, answer) {
 // pairing difficulty to a word
 let difficultyWord = { 1: "Easy", 2: "Medium", 3: "Hard" };
 
+function success(maxDif, scoreIncrement) {
+  this.currentScore += scoreIncrement;
+  this.difficulty = this.difficulty < maxDif ? this.difficulty + 1 : maxDif;
+};
+
+function wrong(minDif) {
+  this.difficulty = this.difficulty > minDif ? this.difficulty - 1 : minDif;
+};
+
+function findElement(id) {
+  return this.getElementById(id);
+}
+
+const findElementBind = findElement.bind(document);
+
 // Quiz object
 const quiz = {
   currentScore: 0,
@@ -39,16 +52,15 @@ const quiz = {
     this.started = true;
     this.currentScore = 0;
     await this.fetchQuestion("easy");
-    this.user = new User(document.getElementById("name").value);
-    this.titleElement = document.getElementById("title");
-    this.scoreElement = document.getElementById("score");
-    document.getElementById("start").remove();
-    document.getElementById("quiz").style.display = "block";
+    this.user = new User(findElementBind("name").value);
+    this.titleElement = findElementBind("title");
+    this.scoreElement = findElementBind("score");
+    findElementBind("start").remove();
+    findElementBind("quiz").style.display = "block";
     this.presentQuestion();
   },
 
   async fetchQuestion(difficulty) {
-    // let apiURL = `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`;
     let apiURL = `https://opentdb.com/api.php?amount=1&difficulty=${difficulty}&type=multiple`;
     await fetch(apiURL)
       .then(async (response) => {
@@ -78,15 +90,14 @@ const quiz = {
   },
 
   presentQuestion() {
-    document.getElementById("answer").innerHTML = "";
-    const questionNumber = document.getElementById("questionNumber");
-    const questionElement = document.getElementById("question");
-    const optionsElement = document.getElementById("choices");
+    findElementBind("answer").innerHTML = "";
+    const questionNumber = findElementBind("questionNumber");
+    const questionElement = findElementBind("question");
+    const optionsElement = findElementBind("choices");
     this.titleElement.innerHTML = `${this.user.username}`;
     this.scoreElement.innerHTML = `${this.currentScore}/${this.questionNumber}`;
-    questionNumber.innerHTML = `Question ${this.questionNumber + 1} (${
-      difficultyWord[this.difficulty]
-    })`;
+    questionNumber.innerHTML = `Question ${this.questionNumber + 1} (${difficultyWord[this.difficulty]
+      })`;
     this.currentQuestion = this.storedQuestion.pop();
     questionElement.innerHTML = this.currentQuestion.question;
     optionsElement.innerHTML = "";
@@ -114,16 +125,15 @@ const quiz = {
   },
 
   async answerQuestion(answer) {
-    // document.getElementById("choices").innerHTML = "";
-    document.getElementById(
+    // findElementBind("choices").innerHTML = "";
+    findElementBind(
       "answer"
     ).innerHTML = `Answer: ${this.currentQuestion.answer}`;
     // increase or decrease difficulty depending on correctness
     if (this.currentQuestion.checkAnswer(answer)) {
-      this.currentScore++;
-      this.difficulty = this.difficulty < 3 ? this.difficulty + 1 : 3;
+      success.apply(this, [3, 1]);
     } else {
-      this.difficulty = this.difficulty > 1 ? this.difficulty - 1 : 1;
+      wrong.call(this, 1);
     }
     this.questionNumber++;
     this.scoreElement.innerHTML = `${this.currentScore}/${this.questionNumber}`;
