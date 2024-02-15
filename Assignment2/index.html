@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 2</title>
     <meta name="author" content="Amanda Nguyen & Dat Lam">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/styles.css">
 </head>
+<!-- TODO: Responsvie and Aesthic UI -->
 <body>
     <script src="assignment2.js"></script>
-    <h1>Assignment 2</h1>
+    <h1 id="title">Assignment 2 - JS Custom Quiz</h1>
+    <div id="start">
+        <label">Enter your name:</label>
+        <input type="text" id="name" name="name">
+        <button onclick="quiz.startQuiz()">Start Quiz</button>
+    </div>
+    <div id="quiz" style="display: none;">
+        <h2 id="questionNumber"></h2>
+        <h2 id="question"></h2>
+        <div id="choices"></div>
+    </div>
+    
+        
 </body>
 </html>
