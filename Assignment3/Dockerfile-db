@@ -1,0 +1,12 @@
+FROM mysql:5.7
+
+COPY my.cnf /etc/mysql/conf.d/
+COPY ./scripts/ /docker-entrypoint-initdb.d/
+
+RUN apt-get update && apt-get install -y tzdata
+
+ENV TZ=America/Edmonton
+
+HEALTHCHECK CMD mysqladmin ping -h localhost
+
+RUN apt-get update && apt-get install -y mytop percona-toolkit
