@@ -19,7 +19,7 @@ class LuckyController extends AbstractController
         ]);
     }
 
-    #[Route('/lucky/number/{max}', name: 'app_lucky_number_max')]
+    #[Route('/lucky/number/{max}', name: 'app_lucky_number_max', requirements: ['max' => '\d+'])]
     public function numberMax($max): Response
     {
         $number = random_int(0, $max);
