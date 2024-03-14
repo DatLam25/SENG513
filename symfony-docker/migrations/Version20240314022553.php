@@ -21,7 +21,11 @@ final class Version20240314022553 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE IF NOT EXISTS user (id INT AUTO_INCREMENT NOT NULL, username VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_IDENTIFIER_USERNAME (username), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql("INSERT INTO user (username, roles, password) VALUES ('admin', '[\"admin\"]', '".password_hash('admin_password', PASSWORD_DEFAULT)."')");
+        $password = "password";
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $this->addSql("INSERT INTO user (username, roles, password) VALUES ('admin', '[\"ROLE_ADMIN\"]', '$hashedPassword')");
+        $this->addSql("INSERT INTO user (username, roles, password) VALUES ('user', '[\"ROLE_USER\"]', '$hashedPassword')");
     }
 
     public function down(Schema $schema): void
