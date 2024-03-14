@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <p>{{ message|raw }}</p>
+    <p>Your number is:</p>
+    <p>{{ number }}</p>
+    <p>Your id is:</p>
+    <p>{{ id }}</p>
+    <p>Your lucky number history is:</p>
+    <ul>
+        {% for item in history %}
+            <li>{{ item.value }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
